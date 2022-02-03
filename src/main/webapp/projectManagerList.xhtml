@@ -20,17 +20,75 @@
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 </h:head>
-<h:body>
-    <ui:include src="nav.xhtml"></ui:include>
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h4 class="display-4">Bravooooo</h4>
-            <p class="lead">C'est a vous de coder cette partie</p>
-            <p class="lead">
-            </p>
-        </div>
-    </div>
 
+<h:body>
+	<ui:include src="nav.xhtml"></ui:include>
+    <div class="container">
+
+		<h1>Liste des chefs projet</h1>
+		<h:form>
+
+			<p class="col-md-12 bg-light text-right"><h:commandButton action="/registerProjectManager.xhtml?faces-redirect=true"
+				value="Ajouter"
+				styleClass="btn btn-success" /></p>
+
+
+			<h:dataTable value="#{ctrProjectManagerBean.pmList}" var="pm"
+				class="table table-striped table-hover table-bordered tableUpdated">
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">
+						<h:outputText value="#{msg.register_firstname}" />
+					</f:facet>
+    				#{pm.firstname}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.register_name}" />
+					</f:facet>
+    				#{pm.lastname}
+    			</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.register_mail}" />
+					</f:facet>
+    				#{pm.email}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.register_file_number}" />
+					</f:facet>
+    				#{pm.fileNumber}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.register_phone_number}" />
+					</f:facet>
+    				#{pm.phoneNumber}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.btn_tab}" />
+					</f:facet>
+					<h:commandButton value="#{msg.btn_update}"
+						action="#{ctrProjectManagerBean.findProjectManagerById}"
+						styleClass="btn btn-primary btn-space">
+						<f:param name="pmId" value="#{pm.id}" />
+					</h:commandButton>
+					<h:commandButton styleClass="btn btn-danger"
+						action="#{ctrProjectManagerBean.deleteProjectManagerById}"
+						value="#{msg.btn_delete}">
+						<f:param name="pmId" value="#{pm.id}" />
+						
+
+					</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+
+		</h:form>
+	</div>
 </h:body>
 
 </html>

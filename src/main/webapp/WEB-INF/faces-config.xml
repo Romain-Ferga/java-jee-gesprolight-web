@@ -18,8 +18,8 @@
 		</locale-config>
 	</application>
 
+	<!-- Routes pour employé -->
 	<navigation-rule>
-		<!-- Routes pour employé -->
 		<from-view-id>/register.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{ctrEmployeeBean.saveEmployee}</from-action>
@@ -49,4 +49,39 @@
 			<to-view-id>/empList.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<!-- Routes pour employé -->
+
+	<!-- Routes pour chef de projet -->
+	<navigation-rule>
+		<from-view-id>/registerProjectManager.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrProjectManagerBean.saveProjectManager}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/projectManagerList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/updateProjectManager.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrProjectManagerBean.updateProjectManager}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/projectManagerList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/projectManagerList.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrProjectManagerBean.findProjectManagerById}</from-action>
+			<to-view-id>/updateProjectManager.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{ctrProjectManagerBean.deleteProjectManagerById}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/projectManagerList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Routes pour chef de projet -->
+	
 </faces-config>

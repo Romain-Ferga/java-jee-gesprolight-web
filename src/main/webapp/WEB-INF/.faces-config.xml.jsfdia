@@ -10,6 +10,16 @@
     TITLE="#{ctrEmployeeBean.saveEmployee}:success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#updateEmp.xhtml" PATH="/updateEmp.xhtml"
+  SHAPE="240,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#updateEmp.xhtml:0" NAME="item"
+   PATH="/updateEmp.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrEmployeeBean.updateEmployee}:#empList.xhtml"
+    NAME="output" PATH="/empList.xhtml" TARGET="rules:#empList.xhtml"
+    TITLE="#{ctrEmployeeBean.updateEmployee}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#empList.xhtml" PATH="/empList.xhtml"
   SHAPE="448,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#empList.xhtml:0" NAME="item"
@@ -25,14 +35,42 @@
     TITLE="#{ctrEmployeeBean.deleteEmpById}:success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#updateEmp.xhtml" PATH="/updateEmp.xhtml"
-  SHAPE="240,177,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#updateEmp.xhtml:0" NAME="item"
-   PATH="/updateEmp.xhtml" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#registerProjectManager.xhtml"
+  PATH="/registerProjectManager.xhtml" SHAPE="32,273,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#registerProjectManager.xhtml:0" NAME="item"
+   PATH="/registerProjectManager.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{ctrEmployeeBean.updateEmployee}:#empList.xhtml"
-    NAME="output" PATH="/empList.xhtml" TARGET="rules:#empList.xhtml"
-    TITLE="#{ctrEmployeeBean.updateEmployee}:success" model-entity="JSFProcessItemOutput"/>
+    ID="success:#{ctrProjectManagerBean.saveProjectManager}:#projectManagerList.xhtml"
+    NAME="output" PATH="/projectManagerList.xhtml"
+    TARGET="rules:#projectManagerList.xhtml"
+    TITLE="#{ctrProjectManagerBean.saveProjectManager}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#updateProjectManager.xhtml"
+  PATH="/updateProjectManager.xhtml" SHAPE="32,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#updateProjectManager.xhtml:0" NAME="item"
+   PATH="/updateProjectManager.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrProjectManagerBean.updateProjectManager}:#projectManagerList.xhtml"
+    NAME="output" PATH="/projectManagerList.xhtml"
+    TARGET="rules:#projectManagerList.xhtml"
+    TITLE="#{ctrProjectManagerBean.updateProjectManager}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#projectManagerList.xhtml"
+  PATH="/projectManagerList.xhtml" SHAPE="272,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#projectManagerList.xhtml:0" NAME="item"
+   PATH="/projectManagerList.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{ctrProjectManagerBean.findProjectManagerById}:#updateProjectManager.xhtml"
+    NAME="output" PATH="/updateProjectManager.xhtml"
+    TARGET="rules:#updateProjectManager.xhtml"
+    TITLE="#{ctrProjectManagerBean.findProjectManagerById}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrProjectManagerBean.deleteProjectManagerById}:#projectManagerList.xhtml"
+    NAME="output1" PATH="/projectManagerList.xhtml"
+    TARGET="rules:#projectManagerList.xhtml"
+    TITLE="#{ctrProjectManagerBean.deleteProjectManagerById}:success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

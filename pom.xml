@@ -12,7 +12,7 @@
 		<!-- Import du business core de gespro -->
 		<dependency>
 			<groupId>af.cmr.indyli.gespro.light.business</groupId>
-			<artifactId>gesprolight-business</artifactId>
+			<artifactId>gesprolighte-rfe-business</artifactId>
 			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 
