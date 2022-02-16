@@ -8,7 +8,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<title>Formulaire de modification de employé</title>
+	<title><h:outputText value="#{msg.update_project_text}" /></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 </h:head>
 <h:body>
@@ -23,55 +23,55 @@
 					<h:outputText value="#{msg.register_form_msg}" />
 				</h4>
 
-				<h:inputHidden value="#{ctrEmployeeBean.empDataBean.id}"
+				<h:inputHidden value="#{ctrProjectManagerBean.pmDataBean.id}"
 					required="true" id="id" />
 
 				<h:outputText value="#{msg.register_file_number}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.fileNumber}" required="true"
-					validator="#{ctrEmployeeBean.validateFileNumber}" id="fileNumber"
+					value="#{ctrProjectManagerBean.pmDataBean.fileNumber}" required="true"
+					id="fileNumber"
 					requiredMessage="#{msg.register_filenumber_required}" />
 				<h:message for="fileNumber" style="color : red" />
 
 
 				<h:outputText value="#{msg.register_firstname}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.firstname}" required="true"
+					value="#{ctrProjectManagerBean.pmDataBean.firstname}" required="true"
 					id="prenom" requiredMessage="#{msg.register_prenom_required}" />
 				<h:message for="prenom" style="color : red" />
 
 
 				<h:outputText value="#{msg.register_name}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.lastname}" required="true"
-					validator="#{ctrEmployeeBean.validateName}" id="nom" />
+					value="#{ctrProjectManagerBean.pmDataBean.lastname}" required="true"
+					id="nom" />
 				<h:message for="nom" style="color : red" />
 
 
 				<h:outputText value="#{msg.register_mail}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.email}" required="true"
-					validator="#{ctrEmployeeBean.validateEmail}" id="email" />
+					value="#{ctrProjectManagerBean.pmDataBean.email}" required="true"
+					validator="#{ctrProjectManagerBean.validateEmail}" id="email" />
 				<h:message for="email" />
 
 
 				<h:outputText value="#{msg.register_login}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.login}" required="true"
-					validator="#{ctrEmployeeBean.validateLogin}" id="login" />
+					value="#{ctrProjectManagerBean.pmDataBean.login}" required="true"
+					id="login" />
 				<h:message for="login" />
 
 
 				<h:outputText value="#{msg.register_password}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.password}" required="true"
+					value="#{ctrProjectManagerBean.pmDataBean.password}" required="true"
 					id="password" type="password" />
 				<h:message for="password" />
 
 
 				<h:outputText value="#{msg.register_phone_number}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrEmployeeBean.empDataBean.phoneNumber}" required="true"
+					value="#{ctrProjectManagerBean.pmDataBean.phoneNumber}" required="true"
 					id="phoneNumber" />
 				<h:message for="phoneNumber" />
 
@@ -79,7 +79,7 @@
 				<br />
 				<h:commandButton styleClass="btn btn-success"
 					value="#{msg.btn_update}"
-					action="#{ctrEmployeeBean.updateEmployee}" />
+					action="#{ctrProjectManagerBean.updateProjectManager}" />
 
 			</h:form>
 		</div>

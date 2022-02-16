@@ -27,7 +27,7 @@
 				<h:outputText value="#{msg.register_file_number}" />
 				<h:inputText styleClass="form-control"
 					value="#{ctrEmployeeBean.empDataBean.fileNumber}" required="true"
-					id="fileNumber"
+					validator="#{ctrEmployeeBean.validateFileNumber}" id="fileNumber"
 					requiredMessage="#{msg.register_filenumber_required}" />
 				<h:message for="fileNumber" style="color : red" />
 
@@ -42,7 +42,7 @@
 				<h:outputText value="#{msg.register_name}" />
 				<h:inputText styleClass="form-control"
 					value="#{ctrEmployeeBean.empDataBean.lastname}" required="true"
-					id="nom" />
+					validator="#{ctrEmployeeBean.validateName}" id="nom" />
 				<h:message for="nom" style="color : red" />
 
 
@@ -56,7 +56,7 @@
 				<h:outputText value="#{msg.register_login}" />
 				<h:inputText styleClass="form-control"
 					value="#{ctrEmployeeBean.empDataBean.login}" required="true"
-					id="login" />
+					validator="#{ctrEmployeeBean.validateLogin}" id="login" />
 				<h:message for="login" />
 
 

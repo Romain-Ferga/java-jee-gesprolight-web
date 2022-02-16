@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title><h:outputText value="#{msg.ajout_project_text}" /></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+</h:head>
+<h:body>
+	<ui:include src="nav.xhtml"></ui:include>
+	<div class="container-fluid col-lg-6">
+		<h3>
+			<h:outputText value="#{msg.ajout_project_text}" />
+		</h3>
+		<div class="form-group">
+			<h:form>
+				<h4>
+					<h:outputText value="#{msg.ajout_project_text}" />
+				</h4>
+
+
+				<h:outputText value="#{msg.name}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrProjectBean.prjDataBean.name}" required="true"
+					id="name"
+					requiredMessage="#{msg.project_name_required}" />
+				<h:message for="name" style="color : red" />
+
+
+				<h:outputText value="#{msg.project_description}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrProjectBean.prjDataBean.description}" required="true"
+					id="description" requiredMessage="#{msg.project_description_required}" />
+				<h:message for="description" style="color : red" />
+
+
+				<h:outputText value="#{msg.project_amount}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrProjectBean.prjDataBean.amount}" required="true"
+					id="amount" />
+				<h:message for="amount" style="color : red" />
+
+
+				<h:outputText value="#{msg.project_creationDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.creationDate}" required="true" id="creationDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
+				</h:inputText>
+				<h:message for="creationDate" />
+
+
+				<h:outputText value="#{msg.project_endDate}" validator="#{ctrProjectBean.validateEndDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.endDate}" required="true" id="endDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
+				</h:inputText>
+				<h:message for="endDate" />
+
+
+				<h:outputText value="#{msg.project_projectCode}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrProjectBean.prjDataBean.projectCode}" required="true"
+					id="projectCode" />
+				<h:message for="projectCode" />
+
+
+				<h:outputText value="#{msg.project_startDate}" validator="#{ctrProjectBean.validateStartDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.startDate}" required="true" id="startDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
+				</h:inputText>
+				<h:message for="startDate" />
+
+
+				<h:outputText value="#{msg.project_updateDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.updateDate}" id="updateDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
+				</h:inputText>
+				<h:message for="updateDate" />
+
+
+				<h:outputText value="#{msg.project_organization}" validator="#{ctrProjectBean.validateOrganization}" />				
+				<h:selectOneMenu id="org"
+				             value="#{ctrProjectBean.orgId}" styleClass="form-control">
+				   <f:selectItem itemLabel="#{msg.project_organization}"
+				              noSelectionOption="false" />
+				   <f:selectItems value="#{ctrOrganizationBean.orgList}"
+				               var="org" itemLabel="#{org.name}" itemValue="#{org.id}"/>
+				</h:selectOneMenu>
+				<h:message for="org" />
+
+
+				<h:outputText value="#{msg.project_chefProjet}" validator="#{ctrProjectBean.validateProjectManager}" />				
+				<h:selectOneMenu id="pm"
+				             value="#{ctrProjectBean.pmId}" styleClass="form-control">
+				   <f:selectItem itemLabel="#{msg.project_chefProjet}"
+				              noSelectionOption="false" />
+				   <f:selectItems value="#{ctrProjectManagerBean.pmList}"
+				               var="pm" itemLabel="#{pm.lastname}" itemValue="#{pm.id}"/>
+				</h:selectOneMenu>
+				<h:message for="pm" />
+
+
+				<br/>
+					<h:commandButton styleClass="btn btn-success"
+						value="#{msg.register_submit_button}"
+						action="#{ctrProjectBean.saveProject}" />
+				
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

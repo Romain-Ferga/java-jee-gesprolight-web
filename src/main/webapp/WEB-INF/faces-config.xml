@@ -83,5 +83,71 @@
 		</navigation-case>
 	</navigation-rule>
 	<!-- Routes pour chef de projet -->
+
+	<!-- Routes pour organisation -->
+	<navigation-rule>
+		<from-view-id>/createOrganization.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrOrganizationBean.saveOrganization}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/organizationList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/updateOrganization.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrOrganizationBean.updateOrganization}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/organizationList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/organizationList.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrOrganizationBean.findOrganizationById}</from-action>
+			<to-view-id>/updateOrganization.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{ctrOrganizationBean.deleteOrganizationById}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/organizationList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Routes pour organisation -->
+
+	<!-- Routes pour projet -->
+	<navigation-rule>
+		<from-view-id>/createProject.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrProjectBean.saveProject}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/projectList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/updateProject.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrProjectBean.updateProject}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/projectList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/projectList.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrProjectBean.findProjectById}</from-action>
+			<to-view-id>/updateProject.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{ctrProjectBean.deleteProjectById}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/projectList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Routes pour projet -->
 	
 </faces-config>

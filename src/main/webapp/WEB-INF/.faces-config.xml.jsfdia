@@ -73,4 +73,80 @@
     TITLE="#{ctrProjectManagerBean.deleteProjectManagerById}:success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#createProject.xhtml"
+  PATH="/createProject.xhtml" SHAPE="32,529,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#createProject.xhtml:0" NAME="item"
+   PATH="/createProject.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrProjectBean.saveProject}:#projectList.xhtml"
+    NAME="output" PATH="/projectList.xhtml"
+    TARGET="rules:#projectList.xhtml"
+    TITLE="#{ctrProjectBean.saveProject}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#updateProject.xhtml"
+  PATH="/updateProject.xhtml" SHAPE="32,673,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#updateProject.xhtml:0" NAME="item"
+   PATH="/updateProject.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrProjectBean.updateProject}:#projectList.xhtml"
+    NAME="output" PATH="/projectList.xhtml"
+    TARGET="rules:#projectList.xhtml"
+    TITLE="#{ctrProjectBean.updateProject}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#projectList.xhtml" PATH="/projectList.xhtml"
+  SHAPE="272,545,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#projectList.xhtml:0" NAME="item"
+   PATH="/projectList.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{ctrProjectBean.findProjectById}:#updateProject.xhtml"
+    NAME="output" PATH="/updateProject.xhtml"
+    TARGET="rules:#updateProject.xhtml"
+    TITLE="#{ctrProjectBean.findProjectById}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrProjectBean.deleteProjectById}:#projectList.xhtml"
+    NAME="output1" PATH="/projectList.xhtml"
+    TARGET="rules:#projectList.xhtml"
+    TITLE="#{ctrProjectBean.deleteProjectById}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#createOrganization.xhtml"
+  PATH="/createOrganization.xhtml" SHAPE="32,897,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#createOrganization.xhtml:0" NAME="item"
+   PATH="/createOrganization.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrOrganizationBean.saveOrganization}:#organizationList.xhtml"
+    NAME="output" PATH="/organizationList.xhtml"
+    TARGET="rules:#organizationList.xhtml"
+    TITLE="#{ctrOrganizationBean.saveOrganization}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#updateOrganization.xhtml"
+  PATH="/updateOrganization.xhtml" SHAPE="32,1041,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#updateOrganization.xhtml:0" NAME="item"
+   PATH="/updateOrganization.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrOrganizationBean.updateOrganization}:#organizationList.xhtml"
+    NAME="output" PATH="/organizationList.xhtml"
+    TARGET="rules:#organizationList.xhtml"
+    TITLE="#{ctrOrganizationBean.updateOrganization}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#organizationList.xhtml"
+  PATH="/organizationList.xhtml" SHAPE="272,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#organizationList.xhtml:0" NAME="item"
+   PATH="/organizationList.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{ctrOrganizationBean.findOrganizationById}:#updateOrganization.xhtml"
+    NAME="output" PATH="/updateOrganization.xhtml"
+    TARGET="rules:#updateOrganization.xhtml"
+    TITLE="#{ctrOrganizationBean.findOrganizationById}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrOrganizationBean.deleteOrganizationById}:#organizationList.xhtml"
+    NAME="output1" PATH="/organizationList.xhtml"
+    TARGET="rules:#organizationList.xhtml"
+    TITLE="#{ctrOrganizationBean.deleteOrganizationById}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>
