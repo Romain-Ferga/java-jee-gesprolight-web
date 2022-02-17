@@ -35,33 +35,10 @@ public class GpEmployeeManagedBean implements Serializable {
 		this.empList = this.empService.findAll();
 	}
 
-	public String deleteEmpById() {
-		String delEmpId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("empId");
-		this.empService.deleteById(Integer.valueOf(delEmpId));
-		this.empList = this.empService.findAll();
-		return "success";
-	}
-
-	public GpEmployee getEmpDataBean() {
-		return empDataBean;
-	}
-
-	public List<GpEmployee> getEmpList() {
-		return empList;
-	}
-
 	public String saveEmployee() throws GesproBusinessException {
 		this.empService.create(this.empDataBean);
 		this.empList = this.empService.findAll();
 		return "success";
-	}
-
-	public void setEmpDataBean(GpEmployee empDataBean) {
-		this.empDataBean = empDataBean;
-	}
-
-	public void setEmpList(List<GpEmployee> empList) {
-		this.empList = empList;
 	}
 
 	public String updateEmpById() {
@@ -72,6 +49,13 @@ public class GpEmployeeManagedBean implements Serializable {
 
 	public String updateEmployee() throws GesproBusinessException {
 		this.empService.update(this.empDataBean);
+		this.empList = this.empService.findAll();
+		return "success";
+	}
+
+	public String deleteEmpById() {
+		String delEmpId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("empId");
+		this.empService.deleteById(Integer.valueOf(delEmpId));
 		this.empList = this.empService.findAll();
 		return "success";
 	}
@@ -126,6 +110,22 @@ public class GpEmployeeManagedBean implements Serializable {
 
 		}
 
+	}
+
+	public GpEmployee getEmpDataBean() {
+		return empDataBean;
+	}
+
+	public List<GpEmployee> getEmpList() {
+		return empList;
+	}
+
+	public void setEmpDataBean(GpEmployee empDataBean) {
+		this.empDataBean = empDataBean;
+	}
+
+	public void setEmpList(List<GpEmployee> empList) {
+		this.empList = empList;
 	}
 
 }

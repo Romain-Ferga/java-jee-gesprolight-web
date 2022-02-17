@@ -27,7 +27,7 @@
 				<h:outputText value="#{msg.register_file_number}" />
 				<h:inputText styleClass="form-control"
 					value="#{ctrProjectManagerBean.pmDataBean.fileNumber}" required="true"
-					validator="#{ctrProjectManagerBean.validateFileNumber}" id="fileNumber"
+					id="fileNumber"
 					requiredMessage="#{msg.register_filenumber_required}" />
 				<h:message for="fileNumber" style="color : red" />
 
@@ -42,7 +42,7 @@
 				<h:outputText value="#{msg.register_name}" />
 				<h:inputText styleClass="form-control"
 					value="#{ctrProjectManagerBean.pmDataBean.lastname}" required="true"
-					validator="#{ctrProjectManagerBean.validateName}" id="nom" />
+					id="nom" />
 				<h:message for="nom" style="color : red" />
 
 
@@ -56,7 +56,7 @@
 				<h:outputText value="#{msg.register_login}" />
 				<h:inputText styleClass="form-control"
 					value="#{ctrProjectManagerBean.pmDataBean.login}" required="true"
-					validator="#{ctrProjectManagerBean.validateLogin}" id="login" />
+					id="login" />
 				<h:message for="login" />
 
 

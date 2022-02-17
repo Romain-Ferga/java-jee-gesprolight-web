@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title><h:outputText value="#{msg.update_phase_text}" /></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+</h:head>
+<h:body>
+	<ui:include src="nav.xhtml"></ui:include>
+	<div class="container-fluid col-lg-6">
+		<h3>
+			<h:outputText value="#{msg.register_form_home}" />
+		</h3>
+		<div class="form-group">
+			<h:form>
+				<h4>
+					<h:outputText value="#{msg.register_form_msg}" />
+				</h4>
+
+				<h:inputHidden value="#{ctrPhaseBean.phsDataBean.id}"
+					required="true" id="id" />
+
+				<h:outputText value="#{msg.phase_code}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrPhaseBean.phsDataBean.phaseCode}" required="true"
+					id="code"
+					requiredMessage="#{msg.phase_code_required}" />
+				<h:message for="code" style="color : red" />
+
+
+				<h:outputText value="#{msg.phase_description}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrPhaseBean.phsDataBean.description}" required="true"
+					id="description" requiredMessage="#{msg.phase_description_required}" />
+				<h:message for="description" style="color : red" />
+
+
+				<h:outputText value="#{msg.phase_startDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrPhaseBean.phsDataBean.startDate}" required="true" id="startDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
+				</h:inputText>
+				<h:message for="startDate" />
+
+
+				<h:outputText value="#{msg.phase_endDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrPhaseBean.phsDataBean.endDate}" required="true" id="endDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
+				</h:inputText>
+				<h:message for="endDate" />
+
+
+				<h:outputText value="#{msg.phase_amount}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrPhaseBean.phsDataBean.amount}" required="true"
+					id="amount" />
+				<h:message for="amount" style="color : red" />
+
+
+				<h:outputText value="#{msg.phase_status}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrPhaseBean.phsDataBean.status}" required="true"
+					id="status" />
+				<h:message for="status" style="color : red" />
+
+
+				<h:outputText value="#{msg.phase_isEnded}" />
+				<h:inputText styleClass="form-control"
+					value="#{ctrPhaseBean.phsDataBean.isEnded}" required="true"
+					id="isEnded" />
+				<h:message for="isEnded" style="color : red" />
+
+
+				<h:outputText value="#{msg.phase_creationDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrPhaseBean.phsDataBean.creationDate}" required="true" id="creationDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
+				</h:inputText>
+				<h:message for="creationDate" />
+
+
+				<h:outputText value="#{msg.phase_updateDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrPhaseBean.phsDataBean.updateDate}" id="updateDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
+				</h:inputText>
+				<h:message for="updateDate" />
+
+
+				<h:outputText value="#{msg.phase_project}" />
+				<h:selectOneMenu id="prj"
+				             value="#{ctrPhaseBean.phsDataBean.gpProject.id}" styleClass="form-control">
+				   <f:selectItem itemLabel="#{msg.phase_project}"
+				              noSelectionOption="false" />
+				   <f:selectItems value="#{ctrProjectBean.prjList}"
+				               var="prj" itemLabel="#{prj.name}" itemValue="#{prj.id}"/>
+				</h:selectOneMenu>
+				<h:message for="prj" />
+
+
+				<br />
+				<h:commandButton styleClass="btn btn-success"
+					value="#{msg.btn_update}"
+					action="#{ctrPhaseBean.updatePhase}" />
+
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

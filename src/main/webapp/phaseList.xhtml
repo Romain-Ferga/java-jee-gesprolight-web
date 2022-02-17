@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:head>
+    <title><h:outputText value="#{msg.phase_title}" /></title>
+
+
+    <style type="text/css">
+        .btn-space {
+            margin-right: 5px;
+        }
+    </style>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="nav.xhtml"></ui:include>
+    <div class="container">
+
+		<h1><h:outputText value="#{msg.phase_title}" /></h1>
+		<h:form>
+
+			<p class="col-md-12 bg-light text-right"><h:commandButton action="/createProject.xhtml?faces-redirect=true"
+				value="Ajouter"
+				styleClass="btn btn-success" /></p>
+
+
+			<h:dataTable value="#{ctrPhaseBean.phsList}" var="phs"
+				class="table table-striped table-hover table-bordered tableUpdated">
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_code}" />
+					</f:facet>
+    				#{phs.code}
+    			</h:column><h:column>
+					<!-- column header -->
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_description}" />
+					</f:facet>
+    				#{phs.description}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_startDate}" />
+					</f:facet>
+    				#{phs.startDate}
+    			</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.project_endDate}" />
+					</f:facet>
+    				#{phs.endDate}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_amount}" />
+					</f:facet>
+    				#{phs.amount}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_status}" />
+					</f:facet>
+    				#{phs.status}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_isEnded}" />
+					</f:facet>
+    				#{phs.isEnded}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.project_creationDate}" />
+					</f:facet>
+    				#{phs.creationDate}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.project_updateDate}" />
+					</f:facet>
+    				#{phs.updateDate}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.phase_project}" />
+					</f:facet>
+    				#{phs.gpProject.name}
+    			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.btn_tab}" />
+					</f:facet>
+					<h:commandButton value="#{msg.btn_update}"
+						action="#{ctrPhaseBean.findPhaseById}"
+						styleClass="btn btn-primary btn-space">
+						<f:param name="phsId" value="#{phs.id}" />
+					</h:commandButton>
+					<h:commandButton styleClass="btn btn-danger"
+						action="#{ctrPhaseBean.deletePhaseById}"
+						value="#{msg.btn_delete}">
+						<f:param name="phsId" value="#{phs.id}" />
+						
+
+					</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+
+		</h:form>
+	</div>
+</h:body>
+
+</html>

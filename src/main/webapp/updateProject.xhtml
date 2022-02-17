@@ -23,57 +23,86 @@
 					<h:outputText value="#{msg.register_form_msg}" />
 				</h4>
 
-				<h:inputHidden value="#{ctrProjectManagerBean.pmDataBean.id}"
+				<h:inputHidden value="#{ctrProjectBean.prjDataBean.id}"
 					required="true" id="id" />
 
-				<h:outputText value="#{msg.register_file_number}" />
+				<h:outputText value="#{msg.name}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.fileNumber}" required="true"
-					id="fileNumber"
-					requiredMessage="#{msg.register_filenumber_required}" />
-				<h:message for="fileNumber" style="color : red" />
+					value="#{ctrProjectBean.prjDataBean.name}" required="true"
+					id="name"
+					requiredMessage="#{msg.project_name_required}" />
+				<h:message for="name" style="color : red" />
 
 
-				<h:outputText value="#{msg.register_firstname}" />
+				<h:outputText value="#{msg.project_description}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.firstname}" required="true"
-					id="prenom" requiredMessage="#{msg.register_prenom_required}" />
-				<h:message for="prenom" style="color : red" />
+					value="#{ctrProjectBean.prjDataBean.description}" required="true"
+					id="description" requiredMessage="#{msg.project_description_required}" />
+				<h:message for="description" style="color : red" />
 
 
-				<h:outputText value="#{msg.register_name}" />
+				<h:outputText value="#{msg.project_amount}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.lastname}" required="true"
-					id="nom" />
-				<h:message for="nom" style="color : red" />
+					value="#{ctrProjectBean.prjDataBean.amount}" required="true"
+					id="amount" />
+				<h:message for="amount" style="color : red" />
 
 
-				<h:outputText value="#{msg.register_mail}" />
+				<h:outputText value="#{msg.project_creationDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.creationDate}" required="true" id="creationDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
+				</h:inputText>
+				<h:message for="creationDate" />
+
+
+				<h:outputText value="#{msg.project_endDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.endDate}" required="true" id="endDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
+				</h:inputText>
+				<h:message for="endDate" />
+
+
+				<h:outputText value="#{msg.project_projectCode}" />
 				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.email}" required="true"
-					validator="#{ctrProjectManagerBean.validateEmail}" id="email" />
-				<h:message for="email" />
+					value="#{ctrProjectBean.prjDataBean.projectCode}" required="true"
+					id="projectCode" />
+				<h:message for="projectCode" />
 
 
-				<h:outputText value="#{msg.register_login}" />
-				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.login}" required="true"
-					id="login" />
-				<h:message for="login" />
+				<h:outputText value="#{msg.project_startDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.startDate}" required="true" id="startDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
+				</h:inputText>
+				<h:message for="startDate" />
 
 
-				<h:outputText value="#{msg.register_password}" />
-				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.password}" required="true"
-					id="password" type="password" />
-				<h:message for="password" />
+				<h:outputText value="#{msg.project_updateDate}" />
+				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.updateDate}" id="updateDate" >
+					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
+				</h:inputText>
+				<h:message for="updateDate" />
 
 
-				<h:outputText value="#{msg.register_phone_number}" />
-				<h:inputText styleClass="form-control"
-					value="#{ctrProjectManagerBean.pmDataBean.phoneNumber}" required="true"
-					id="phoneNumber" />
-				<h:message for="phoneNumber" />
+				<h:outputText value="#{msg.project_organization}" />				
+				<h:selectOneMenu id="org"
+				             value="#{ctrProjectBean.prjDataBean.gpOrganization.id}" styleClass="form-control">
+				   <f:selectItem itemLabel="#{msg.project_organization}"
+				              noSelectionOption="false" />
+				   <f:selectItems value="#{ctrOrganizationBean.orgList}"
+				               var="org" itemLabel="#{org.name}" itemValue="#{org.id}"/>
+				</h:selectOneMenu>
+				<h:message for="org" />
+
+
+				<h:outputText value="#{msg.project_chefProjet}" />
+				<h:selectOneMenu id="pm"
+				             value="#{ctrProjectBean.prjDataBean.gpChefProjet.id}" styleClass="form-control">
+				   <f:selectItem itemLabel="#{msg.project_chefProjet}"
+				              noSelectionOption="false" />
+				   <f:selectItems value="#{ctrProjectManagerBean.pmList}"
+				               var="pm" itemLabel="#{pm.lastname}" itemValue="#{pm.id}"/>
+				</h:selectOneMenu>
+				<h:message for="pm" />
 
 
 				<br />

@@ -149,5 +149,38 @@
 		</navigation-case>
 	</navigation-rule>
 	<!-- Routes pour projet -->
+
+	<!-- Routes pour phase -->
+	<navigation-rule>
+		<from-view-id>/createPhase.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrPhaseBean.savePhase}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/phaseList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/updatePhase.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrPhaseBean.updatePhase}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/phaseList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/phaseList.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{ctrPhaseBean.findPhaseById}</from-action>
+			<to-view-id>/updatePhase.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{ctrPhaseBean.deletePhaseById}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/phaseList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Routes pour phase -->
 	
 </faces-config>

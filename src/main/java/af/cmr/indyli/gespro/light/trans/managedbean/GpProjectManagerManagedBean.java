@@ -16,7 +16,7 @@ import af.cmr.indyli.gespro.light.business.exception.GesproBusinessException;
 import af.cmr.indyli.gespro.light.business.service.IGpEmployeeService;
 import af.cmr.indyli.gespro.light.business.service.impl.GpProjectManagerServiceImpl;
 
-@ManagedBean(name = "ctrProjectManagerBean") // , eager = true)
+@ManagedBean(name = "ctrProjectManagerBean")
 @RequestScoped
 public class GpProjectManagerManagedBean implements Serializable {
 
@@ -37,11 +37,19 @@ public class GpProjectManagerManagedBean implements Serializable {
 
 	}
 
-	public String deleteProjectManagerById() throws GesproBusinessException {
+	public String saveProjectManager() throws GesproBusinessException {
 
-		String delPmId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("pmId");
+		this.getPmService().create(this.getPmDataBean());
 
-		this.getPmService().deleteById(Integer.valueOf(delPmId));
+		this.setPmList(this.getPmService().findAll());
+
+		return "success";
+
+	}
+
+	public String updateProjectManager() throws GesproBusinessException {
+
+		this.getPmService().update(this.getPmDataBean());
 
 		this.setPmList(this.getPmService().findAll());
 
@@ -59,43 +67,11 @@ public class GpProjectManagerManagedBean implements Serializable {
 
 	}
 
-	public GpProjectManager getPmDataBean() {
-		return pmDataBean;
-	}
+	public String deleteProjectManagerById() throws GesproBusinessException {
 
-	public List<GpProjectManager> getPmList() {
-		return pmList;
-	}
+		String delPmId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("pmId");
 
-	public IGpEmployeeService<GpProjectManager> getPmService() {
-		return pmService;
-	}
-
-	public String saveProjectManager() throws GesproBusinessException {
-
-		this.getPmService().create(this.getPmDataBean());
-
-		this.setPmList(this.getPmService().findAll());
-
-		return "success";
-
-	}
-
-	public void setPmDataBean(GpProjectManager pmDataBean) {
-		this.pmDataBean = pmDataBean;
-	}
-
-	public void setPmList(List<GpProjectManager> pmList) {
-		this.pmList = pmList;
-	}
-
-	public void setPmService(IGpEmployeeService<GpProjectManager> pmService) {
-		this.pmService = pmService;
-	}
-
-	public String updateProjectManager() throws GesproBusinessException {
-
-		this.getPmService().update(this.getPmDataBean());
+		this.getPmService().deleteById(Integer.valueOf(delPmId));
 
 		this.setPmList(this.getPmService().findAll());
 
@@ -109,11 +85,7 @@ public class GpProjectManagerManagedBean implements Serializable {
 
 		String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$";
 
-		if (email == null)
-
-			throw new ValidatorException(new FacesMessage("Email obligatoire"));
-
-		else if (!Pattern.compile(regexPattern).matcher(email).matches()) {
+		if (!Pattern.compile(regexPattern).matcher(email).matches()) {
 
 			FacesMessage message = new FacesMessage("Email invalide !");
 
@@ -121,73 +93,30 @@ public class GpProjectManagerManagedBean implements Serializable {
 
 		}
 
-		for (GpProjectManager pm : this.getPmList()) {
-
-			if (email == pm.getEmail())
-
-				throw new ValidatorException(new FacesMessage("Email déjà existant.."));
-
-		}
-
 	}
 
-	public void validateFileNumber(FacesContext context, UIComponent toValidate, Object value)
-			throws ValidatorException {
-
-		String fileNumber = (String) value;
-
-		if (fileNumber == null) {
-
-			FacesMessage message = new FacesMessage("Matricule obligatoire");
-
-			throw new ValidatorException(message);
-
-		}
-
-		for (GpProjectManager pm : this.getPmList()) {
-
-			if (fileNumber == pm.getFileNumber())
-
-				throw new ValidatorException(new FacesMessage("Matricule déjà existant.."));
-
-		}
-
+	public GpProjectManager getPmDataBean() {
+		return pmDataBean;
 	}
 
-	public void validateLogin(FacesContext context, UIComponent toValidate, Object value) throws ValidatorException {
-
-		String login = (String) value;
-
-		if (login == null) {
-
-			FacesMessage message = new FacesMessage("Login obligatoire");
-
-			throw new ValidatorException(message);
-
-		}
-
-		for (GpProjectManager pm : this.getPmList()) {
-
-			if (login == pm.getLogin())
-
-				throw new ValidatorException(new FacesMessage("Login déjà existant.."));
-
-		}
-
+	public List<GpProjectManager> getPmList() {
+		return pmList;
 	}
 
-	public void validateName(FacesContext context, UIComponent toValidate, Object value) throws ValidatorException {
+	public IGpEmployeeService<GpProjectManager> getPmService() {
+		return pmService;
+	}
 
-		String nom = (String) value;
+	public void setPmDataBean(GpProjectManager pmDataBean) {
+		this.pmDataBean = pmDataBean;
+	}
 
-		if (nom == null) {
+	public void setPmList(List<GpProjectManager> pmList) {
+		this.pmList = pmList;
+	}
 
-			FacesMessage message = new FacesMessage("Nom obligatoire");
-
-			throw new ValidatorException(message);
-
-		}
-
+	public void setPmService(IGpEmployeeService<GpProjectManager> pmService) {
+		this.pmService = pmService;
 	}
 
 }

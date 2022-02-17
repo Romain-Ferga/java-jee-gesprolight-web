@@ -149,4 +149,41 @@
     TITLE="#{ctrOrganizationBean.deleteOrganizationById}:success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#createPhase.xhtml" PATH="/createPhase.xhtml"
+  SHAPE="32,1265,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#createPhase.xhtml:0" NAME="item"
+   PATH="/createPhase.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrPhaseBean.savePhase}:#phaseList.xhtml"
+    NAME="output" PATH="/phaseList.xhtml"
+    TARGET="rules:#phaseList.xhtml"
+    TITLE="#{ctrPhaseBean.savePhase}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#updatePhase.xhtml" PATH="/updatePhase.xhtml"
+  SHAPE="32,1409,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#updatePhase.xhtml:0" NAME="item"
+   PATH="/updatePhase.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrPhaseBean.updatePhase}:#phaseList.xhtml"
+    NAME="output" PATH="/phaseList.xhtml"
+    TARGET="rules:#phaseList.xhtml"
+    TITLE="#{ctrPhaseBean.updatePhase}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#phaseList.xhtml" PATH="/phaseList.xhtml"
+  SHAPE="272,1281,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#phaseList.xhtml:0" NAME="item"
+   PATH="/phaseList.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{ctrPhaseBean.findPhaseById}:#updatePhase.xhtml" NAME="output"
+    PATH="/updatePhase.xhtml" TARGET="rules:#updatePhase.xhtml"
+    TITLE="#{ctrPhaseBean.findPhaseById}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{ctrPhaseBean.deletePhaseById}:#phaseList.xhtml"
+    NAME="output1" PATH="/phaseList.xhtml"
+    TARGET="rules:#phaseList.xhtml"
+    TITLE="#{ctrPhaseBean.deletePhaseById}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

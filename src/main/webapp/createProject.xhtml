@@ -53,7 +53,7 @@
 				<h:message for="creationDate" />
 
 
-				<h:outputText value="#{msg.project_endDate}" validator="#{ctrProjectBean.validateEndDate}" />
+				<h:outputText value="#{msg.project_endDate}" />
 				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.endDate}" required="true" id="endDate" >
 					<f:convertDateTime pattern="dd-MM-yyyy" type="date"/>
 				</h:inputText>
@@ -67,7 +67,7 @@
 				<h:message for="projectCode" />
 
 
-				<h:outputText value="#{msg.project_startDate}" validator="#{ctrProjectBean.validateStartDate}" />
+				<h:outputText value="#{msg.project_startDate}" />
 				<h:inputText styleClass="form-control" value="#{ctrProjectBean.prjDataBean.startDate}" required="true" id="startDate" >
 					<f:convertDateTime pattern="dd-MM-yyyy HH:mm:ss" type="date"/>
 				</h:inputText>
@@ -81,9 +81,9 @@
 				<h:message for="updateDate" />
 
 
-				<h:outputText value="#{msg.project_organization}" validator="#{ctrProjectBean.validateOrganization}" />				
+				<h:outputText value="#{msg.project_organization}" />				
 				<h:selectOneMenu id="org"
-				             value="#{ctrProjectBean.orgId}" styleClass="form-control">
+				             value="#{ctrProjectBean.prjDataBean.gpOrganization.id}" styleClass="form-control">
 				   <f:selectItem itemLabel="#{msg.project_organization}"
 				              noSelectionOption="false" />
 				   <f:selectItems value="#{ctrOrganizationBean.orgList}"
@@ -92,9 +92,9 @@
 				<h:message for="org" />
 
 
-				<h:outputText value="#{msg.project_chefProjet}" validator="#{ctrProjectBean.validateProjectManager}" />				
+				<h:outputText value="#{msg.project_chefProjet}" />				
 				<h:selectOneMenu id="pm"
-				             value="#{ctrProjectBean.pmId}" styleClass="form-control">
+				             value="#{ctrProjectBean.prjDataBean.gpChefProjet.id}" styleClass="form-control">
 				   <f:selectItem itemLabel="#{msg.project_chefProjet}"
 				              noSelectionOption="false" />
 				   <f:selectItems value="#{ctrProjectManagerBean.pmList}"
